@@ -18,7 +18,6 @@ function matrixParser(matrix) {
     for (var i = 0; i < dimensions.width; i++) {
         var col = [];
         for (var j = 0; j < dimensions.height; j++) {
-            console.log("rows " + j + " and " + i + " = " + rows[j][i] + " || " + col);
             col.push(rows[j][i]);
         }
         columns.push(col);
