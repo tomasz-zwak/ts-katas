@@ -1,9 +1,9 @@
-type MatrixDimensions = {
+export type MatrixDimensions = {
   height: number;
   width: number;
 };
 
-type Matrix = {
+export type Matrix = {
   rows: Array<number[]>;
   columns: Array<number[]>;
   dimensions?: MatrixDimensions;

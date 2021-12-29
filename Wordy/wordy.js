@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Wordy = void 0;
 var Operation;
 (function (Operation) {
@@ -41,10 +41,10 @@ var Wordy = /** @class */ (function () {
 exports.Wordy = Wordy;
 var WordyValidatedImpl = /** @class */ (function () {
     function WordyValidatedImpl(sentence) {
-        this.expected = Expect.Word;
         this.sentence = sentence;
         this.operations = [];
         this.numbers = [];
+        this.expected = Expect.Word;
         this.ops = Object.values(Operation);
     }
     WordyValidatedImpl.prototype.parse = function () {
@@ -88,7 +88,7 @@ var WordyValidatedImpl = /** @class */ (function () {
             this.expected = Expect.Word;
         }
         else {
-            throw new Error("Incorrect syntax or unsupported operation \n \"" + numberStr + "\" should be a number or a correct operation.");
+            throw new Error("Incorrect syntax or unsupported operation \n \"".concat(numberStr, "\" should be a number or a correct operation."));
         }
     };
     return WordyValidatedImpl;

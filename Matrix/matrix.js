@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.matrixParser = void 0;
 function rowToNumArr(row) {
     return row.split(" ").map(function (el) { return parseInt(el); });

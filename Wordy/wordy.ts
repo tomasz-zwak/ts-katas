@@ -61,18 +61,12 @@ export class Wordy implements WordyBuilder {
 }
 
 class WordyValidatedImpl implements WordyValidated {
-  private sentence: string;
-  private operations: string[];
-  private numbers: number[];
+  private operations: string[] = [];
+  private numbers: number[] = [];
   private expected: Expect = Expect.Word;
-  private ops: string[];
+  private ops: string[] = Object.values(Operation);
 
-  constructor(sentence: string) {
-    this.sentence = sentence;
-    this.operations = [];
-    this.numbers = [];
-    this.ops = Object.values(Operation);
-  }
+  constructor(private sentence: string) {}
 
   parse(): WordyParsed {
     let operation: string | undefined;
@@ -114,21 +108,20 @@ class WordyValidatedImpl implements WordyValidated {
       this.sentence = this.sentence.replace(numberStr, "");
       this.expected = Expect.Word;
     } else {
-      throw new Error(`Incorrect syntax or unsupported operation \n "${numberStr}" should be a number or a correct operation.`);
+      throw new Error(
+        `Incorrect syntax or unsupported operation \n "${numberStr}" should be a number or a correct operation.`
+      );
     }
   }
 }
 
 class WordyParsedImpl implements WordyParsed {
-  private operations: string[];
-  private numbers: number[];
-  private result: number;
+  private result: number = 0;
 
-  constructor(operations: string[], numbers: number[]) {
-    this.operations = operations;
-    this.numbers = numbers;
-    this.result = 0;
-  }
+  constructor(
+    private readonly operations: string[],
+    private readonly numbers: number[]
+  ) {}
 
   evaluate(): any {
     this.operations.forEach((op, i) => {
@@ -142,5 +135,3 @@ class WordyParsedImpl implements WordyParsed {
     return this.result;
   }
 }
-
-

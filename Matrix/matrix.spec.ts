@@ -1,4 +1,4 @@
-import { matrixParser } from "./matrix";
+import { MatrixDimensions, matrixParser } from "./matrix";
 
 describe("Matrix", () => {
   const matrix: string = `9 8 7
@@ -18,4 +18,11 @@ describe("Matrix", () => {
       [7, 2, 7],
     ]);
   });
+  test('should not have dimensions', () => {
+    const m = matrixParser(matrix).dimensions;
+    expect(m?.height).toBeFalsy();
+    expect(m?.width).toBeFalsy();
+    expect
+  })
+  
 });
